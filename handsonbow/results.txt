@@ -1,0 +1,274 @@
+/\/\/\/\ USANDO DSIFT /\/\/\/\
+
+immagini normali:
+
+*** NN L2 ***
+Accuracy = 43.0000% (classification)
+OVERALL NN L2 classification accuracy: 0.4300
+
+*** SVM - linear ***
+Accuracy = 56.5% (113/200) (classification)
+OVERALL SVM linear classification accuracy: 0.5650
+
+____________________________________________________________
+
+immagini filtrate con median 3x3:
+
+*** NN L2 ***
+Accuracy = 49.5000% (classification)
+OVERALL NN L2 classification accuracy: 0.4950
+
+*** SVM - linear ***
+Accuracy = 58.5% (117/200) (classification)
+OVERALL SVM linear classification accuracy: 0.5850
+
+____________________________________________________________
+
+immagini filtrate con median 4x4:
+
+*** NN L2 ***
+Accuracy = 48.5000% (classification)
+OVERALL NN L2 classification accuracy: 0.4850
+
+*** SVM - linear ***
+Accuracy = 56% (112/200) (classification)
+OVERALL SVM linear classification accuracy: 0.5600
+
+____________________________________________________________
+
+immagini filtrate con minimo 3x3:
+
+*** NN L2 ***
+Accuracy = 42.0000% (classification)
+OVERALL NN L2 classification accuracy: 0.4200
+
+*** SVM - linear ***
+Accuracy = 52% (104/200) (classification)
+OVERALL SVM linear classification accuracy: 0.5200
+
+*** SVM - intersection kernel ***
+Accuracy = 55.5% (111/200) (classification)
+OVERALL SVM IK classification accuracy: 0.5550
+
+*** SVM - Chi2 kernel ***
+Accuracy = 58% (116/200) (classification)
+OVERALL SVM Chi2 classification accuracy: 0.5800
+
+_____________________________________________________________
+_____________________________________________________________
+
+classificazione di immagini filtrate con median 3x3,
+usando 100 immagini per classificare:
+
+*** NN L2 ***
+Accuracy = 54.5000% (classification)
+OVERALL NN L2 classification accuracy: 0.5450
+
+*** NN Chi-2 ***
+Accuracy = 56.5000% (classification)
+OVERALL NN Chi-2 classification accuracy: 0.5650
+
+*** SVM - linear ***
+Accuracy = 59% (118/200) (classification)
+OVERALL SVM linear classification accuracy: 0.5900
+
+*** SVM - linear LLC max-pooling ***
+Accuracy = 62% (124/200) (classification)
+OVERALL llc+max-pooling classification accuracy: 0.6200
+
+*** SVM - precomputed linear kernel ***
+Accuracy = 59% (118/200) (classification)
+OVERALL SVM precomp linear classification accuracy: 0.5900
+
+*** SVM - intersection kernel ***
+Accuracy = 58.5% (117/200) (classification)
+OVERALL SVM IK classification accuracy: 0.5850
+
+*** SVM - Chi2 kernel ***
+Accuracy = 61% (122/200) (classification)
+OVERALL SVM Chi2 classification accuracy: 0.6100
+
+
+
+80% di immagini per allenare, 20% per testing e k = 500:
+
+*** NN L2 ***
+Accuracy = 61.8406% (classification)
+OVERALL NN L2 classification accuracy: 0.4940
+
+*** NN Chi-2 ***
+Accuracy = 62.2896% (classification)
+OVERALL NN Chi-2 classification accuracy: 0.5120
+
+*** SVM - linear ***
+Accuracy = 70.2581% (626/891) (classification)
+OVERALL SVM linear classification accuracy: 0.4851
+
+*** SVM - linear LLC max-pooling ***
+Accuracy = 62.963% (561/891) (classification)
+OVERALL llc+max-pooling classification accuracy: 0.4930
+
+*** SVM - precomputed linear kernel ***
+Accuracy = 70.2581% (626/891) (classification)
+OVERALL SVM precomp linear classification accuracy: 0.4851
+
+*** SVM - intersection kernel ***
+Accuracy = 66.7789% (595/891) (classification)
+OVERALL SVM IK classification accuracy: 0.5352
+
+*** SVM - Chi2 kernel ***
+Accuracy = 71.6049% (638/891) (classification)
+OVERALL SVM Chi2 classification accuracy: 0.5384
+
+
+
+
+/\/\/\/\ SIFT /\/\/\/\
+
+*** NN L2 ***
+Accuracy = 29.0000% (classification)
+OVERALL NN L2 classification accuracy: 0.2900
+
+*** NN Chi-2 ***
+Accuracy = 30.5000% (classification)
+OVERALL NN Chi-2 classification accuracy: 0.3050
+
+*** SVM - precomputed linear kernel ***
+Accuracy = 31.5% (63/200) (classification)
+OVERALL SVM precomp linear classification accuracy: 0.3150
+
+*** SVM - intersection kernel ***
+Accuracy = 43% (86/200) (classification)
+OVERALL SVM IK classification accuracy: 0.4300
+
+*** SVM - Chi2 kernel ***
+Accuracy = 43.5% (87/200) (classification)
+OVERALL SVM Chi2 classification accuracy: 0.4350
+
+
+80% di immagini per allenare, 20% per testing e k = 200:
+
+*** NN L2 ***
+Accuracy = 50.8418% (classification)
+OVERALL NN L2 classification accuracy: 0.3118
+
+*** NN Chi-2 ***
+Accuracy = 49.7194% (classification)
+OVERALL NN Chi-2 classification accuracy: 0.3096
+
+
+
+/\/\/\/\/\ MSDSIFT /\/\/\/\/\/\
+
+*** NN L2 ***
+Accuracy = 51.0000% (classification)
+OVERALL NN L2 classification accuracy: 0.5100
+
+*** NN Chi-2 ***
+Accuracy = 54.0000% (classification)
+OVERALL NN Chi-2 classification accuracy: 0.5400
+
+*** SVM - linear ***
+Accuracy = 58.5% (117/200) (classification)
+OVERALL SVM linear classification accuracy: 0.5850
+
+*** SVM - linear LLC max-pooling ***
+Accuracy = 58.5% (117/200) (classification)
+OVERALL llc+max-pooling classification accuracy: 0.5850
+
+Feature quantization (hard-assignment)...
+*** SVM - precomputed linear kernel ***
+Accuracy = 59% (118/200) (classification)
+OVERALL SVM precomp linear classification accuracy: 0.5900
+
+*** SVM - intersection kernel ***
+Accuracy = 62% (124/200) (classification)
+OVERALL SVM IK classification accuracy: 0.6200
+
+*** SVM - Chi2 kernel ***
+Accuracy = 64.5% (129/200) (classification)
+OVERALL SVM Chi2 classification accuracy: 0.6450
+
+20% di immagini per allenare, 5% per testing e k = 300:
+
+*** NN L2 ***
+Accuracy = 63.9640% (classification)
+OVERALL NN L2 classification accuracy: 0.4647
+
+*** NN Chi-2 ***
+Accuracy = 61.2613% (classification)
+OVERALL NN Chi-2 classification accuracy: 0.4721
+
+*** SVM - linear ***
+Accuracy = 71.1712% (158/222) (classification)
+OVERALL SVM linear classification accuracy: 0.5360
+
+*** SVM - linear LLC max-pooling ***
+Accuracy = 60.8108% (135/222) (classification)
+OVERALL llc+max-pooling classification accuracy: 0.4292
+
+*** SVM - precomputed linear kernel ***
+Accuracy = 71.1712% (158/222) (classification)
+OVERALL SVM precomp linear classification accuracy: 0.5360
+
+*** SVM - intersection kernel ***
+Accuracy = 68.4685% (152/222) (classification)
+OVERALL SVM IK classification accuracy: 0.5103
+
+*** SVM - Chi2 kernel ***
+Accuracy = 71.1712% (158/222) (classification)
+OVERALL SVM Chi2 classification accuracy: 0.5230
+
+____________________________________________________________________
+
+OCCUPAZIONE MEMORIA
+'desc_test'		690'332'192     => ~0,7 GB           
+'desc_class'	1'826'931'624   => ~1,8 GB
+'desc_train'	2'763'651'966   => ~2,8 GB
+                             tot:  ~5,3 GB
+_____________________________________________________________________
+
+estrazione di feature, poi 336 kmeans, poi vari classificatori su quelle lì
+
+---------- SIFT
+
+*** NN L2 ***
+Accuracy = 56.7164% (classification)
+
+*** NN Chi-2 ***
+Accuracy = 62.1891% (classification)
+
+*** SVM - linear ***
+Accuracy = 53.2338% (107/201) (classification)
+
+*** SVM - precomputed linear kernel ***
+Accuracy = 53.2338% (107/201) (classification)
+
+*** SVM - intersection kernel ***
+Accuracy = 57.7114% (116/201) (classification)
+
+*** SVM - Chi2 kernel ***
+Accuracy = 62.6866% (126/201) (classification)
+
+---------- DSIFT
+
+*** NN L2 ***
+Accuracy = 84.0796% (classification)
+
+*** NN Chi-2 ***
+Accuracy = 86.0697% (classification)
+
+*** SVM - linear ***
+Accuracy = 33.3333% (67/201) (classification)
+
+*** SVM - precomputed linear kernel ***
+Accuracy = 33.3333% (67/201) (classification)
+
+*** SVM - intersection kernel ***
+Accuracy = 33.3333% (67/201) (classification)
+
+*** SVM - Chi2 kernel ***
+Accuracy = 33.3333% (67/201) (classification)
+
+
+
