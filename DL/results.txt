@@ -1,0 +1,510 @@
+%% Train a Convolutional Neural Network Using Data in ImageDatastore 
+https://www.tablesgenerator.com/text_tables
+
+rete con immagini filtrate con median 3x3 e dimensione 128x128 usando 350 immaigini per training
+tempo: 1601.73 s (00:26:41.73), accuracy = 0.5506
+
+rete con immagini filtrate con median 3x3 e dimensione 255x255 usando 80% immaigini per training
+tempo: 17246.16 s (04:47:26.16), accuracy = 0.6195
+
+
+
+
+%% Image Category Classification Using Deep Learning
+
+*** Training set: 30%
+
+usando 348 immagini per categoria, cioè il numero minimo per avere un insieme bilanciato:
+
+- prima esecuzione:
+confMat =
+    0.4016         0    0.0820    0.5164
+    0.0123    0.2623    0.0246    0.7008
+    0.1434    0.0041    0.7500    0.1025
+    0.3361    0.0123    0.0820    0.5697
+
+mean(diag) = 0.4959
+
+- seconda esecuzione:
+confMat =
+    0.7500    0.0410    0.1721    0.0369
+    0.0451    0.9262    0.0246    0.0041
+    0.1352    0.0246    0.8197    0.0205
+    0.5410    0.2172    0.1475    0.0943
+
+mean(diag) = 0.6475
+
+usando tutte le immagini mantenendo le categorie sbilanciate:
+
+- prima esecuzione:
+confMat =
+    0.0366         0    0.0193    0.9441
+         0    0.0305    0.0237    0.9458
+         0         0    0.4098    0.5902
+    0.0199    0.0024    0.0233    0.9544
+
+mean(diag) = 0.3578
+
+- seconda esecuzione:
+
+confMat =
+    0.0096         0    0.0154    0.9750
+         0    0.0034    0.0068    0.9898
+         0         0    0.4057    0.5943
+    0.0024         0    0.0121    0.9855
+
+mean(diag) = 0.3511
+
+
+
+*** Training set: 80%
+
+confMat =
+    0.0405    0.0270    0.1216    0.8108
+         0    0.8452         0    0.1548
+         0    0.0143    0.7143    0.2714
+    0.0085    0.0951    0.0611    0.8353
+
+mean(diag) = 0.6088
+
+
+Dataset aumentato x2:
+confMat =
+
+    0.0034         0    0.0135    0.9831
+         0         0    0.0059    0.9941
+    0.0072         0    0.2374    0.7554
+         0         0    0.0085    0.9915
+
+mean(diag) = 0.3081
+
+
+_____________________________________________
+
+kNN su training features (k = 30)
+conf_mat =
+          24           0           0          13
+          15         416           6         294
+          23           5         234          70
+        1420         423         456        5517
+
+accuracy = 0.6944
+
+
+
+kNN con distanza chi2
+k = 30:
+conf_mat =
+           0           0           0           0
+           0           0           0           0
+           0           0           0           0
+        1482         844         696        5894
+
+
+accuracy = 0.6611
+
+k = 10:
+conf_mat =
+          61          24          28         203
+           6           1           6          29
+          13           7           2          35
+        1402         812         660        5627
+accuracy = 0.6383
+
+k = 5:
+conf_mat =
+         167          87          99         651
+          52          17          30         219
+          65          35          15         197
+        1198         705         552        4827
+accuracy = 0.5637
+
+__________________________________________
+
+usando come categorie: elliptic, irregular, spiral (ottenuta fondendola con barred_spiral)
+k = 3
+conf_mat =
+          90          59         423
+          36          37         144
+         718         600        6809
+accuracy = 0.7779
+
+_________________________________________
+
+696 immagini random
+SVM leave-one-out cross-validation
+conf_mat =
+   369    46    94   228
+    30   552    14   109
+    98    19   489   102
+   199    79    99   257
+accuracy = 0.5988
+
+kNN
+k = 10 (migliore tra 5:5:50)
+conf_mat =
+   377    12    67   238
+    93   666    42   181
+    92    12   533    97
+   134     6    54   180
+accuracy = 0.6307
+
+
+696 immagini, prese con k-means; 
+SVM leave-one-out cross-validation
+conf_mat =
+   370    22    52   218
+    26   606    15    69
+    88     6   587    29
+   212    62    42   380
+accuracy = 0.6979
+
+kNN
+k = 20 (migliore tra 5:5:50)
+conf_mat =
+   303     4    68    66
+    29   642    53    52
+    48     1   511     3
+   316    49    64   575
+accuracy = 0.7295
+
+************ Image Category Classification Using Bag of Features
+696 immagini per categoria, usate quelle prese con k-means
+80% training, 20% test
+    0.6259    0.0288    0.0935    0.5468
+    0.0504    0.9496    0.0576    0.1871
+    0.2158    0.0216    0.8273    0.0935
+    0.1079         0    0.0216    0.1727
+accuracy = 0.6439
+
+
+/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
+
+nuovo dataset, con elittiche scelte meglio e spirali unite
+immagini filtrate con mediana 3x3 e tagliate 129x129 centrate
+
+
+tutte le immagini
+SVM
+conf_mat =
+         584           4         200
+          14         170         100
+         204         164        3016
+accuracy = 0.8461
+
+
+kNN, leave-one-out cross-validation
+k = 25
+conf_mat =
+         651           2         328
+           1         113          37
+         150         223        2951
+accuracy = 0.8337
+
+
+kNN con 338 immagini random tra categorie
+k = 40
+conf_mat =
+   228   124    92
+    98   199    43
+    12    15   203
+accuracy = 0.6213
+
+
+338 immagini kmeans
+SVM
+conf_mat =
+   325     5    13
+     0   321     5
+    13    12   320
+accuracy = 0.9527
+
+kNN, leave-one-out cross-validation
+k = 15
+conf_mat =
+   331    13    24
+     0   278     0
+     7    47   314
+accuracy = 0.9103
+
+676 immagini kmeans per elliptical e spiral, 338 per irregular
+SVM
+conf_mat =
+   619     6    46
+     5   309    19
+    52    23   611
+accuracy = 0.9107
+
+kNN
+k = 10
+conf_mat =
+   640    15    69
+     0   259     1
+    36    64   606
+     0     0     0
+accuracy = 0.8905
+
+
+
+676 immagini, con irregular augmented x2
+random
+k = 10
+conf_mat =
+   632   138   153
+    21   457   153
+    23    81   370
+accuracy = 0.7194
+
+676 immagini dove elliptic/spiral prese con kmeans, irregular augmented x2
+kNN, leave-one-out cross-validation
+senza rimuovere dal training la corrispondente immagine augmented (e viceversa)
+k = 5
+conf_mat =
+   648    21    35
+     0   620     1
+    28    35   302
+accuracy = 0.9290
+
+k = 20
+conf_mat =
+   649    30    37
+     0   595     1
+    27    51   300
+accuracy = 0.9136
+
+
+rimuovendo dal training la corrispondente immagine augmented (e viceversa)
+SVM
+conf_mat =
+   620    11    57
+     6   635    28
+    50    30   591
+accuracy = 0.9103
+
+kNN, leave-one-out cross-validation
+k = 10
+conf_mat =
+   640    24    70
+     0   565     3
+    36    87   603
+accuracy = 0.8915
+
+senza le immagini S0, 338 kmeans
+SVM
+conf_mat =
+   326     4    10
+     1   323     6
+     9     9   320
+accuracy = 0.9613
+
+kNN
+k = 10
+conf_mat =
+   329    13    11
+     0   278     0
+     7    45   325
+accuracy = 0.9246
+
+FEATURE ESTRATTE DA RESNET
+kNN
+k = 50
+conf_mat =
+        3012        1099         337
+           4           4           0
+           0           0           0
+accuracy = 0.6768
+
+kmeans 336
+SVM
+conf_mat =
+   334     4     0
+     0   279    48
+     2    53   288
+accuracy = 0.8938
+kmeans 336
+kNN
+k = 10
+conf_mat =
+   336     4     3
+     0   244    20
+     0    88   313
+accuracy = 0.8859
+
+senza tenere in considerazioni le immagini S0, 333 kmeans
+kNN
+k = 5
+conf_mat =
+   336     4     2
+     0   240    16
+     0    92   318
+accuracy = 0.8869
+
+SVM (linear)
+conf_mat =
+   335     3     0
+     0   280    47
+     1    53   289
+accuracy = 0.8968
+
+SVM (kernel gaussiano)
+conf_mat =
+     0   157   179
+   171     0   154
+   162   176     0
+accuracy = 0
+
+BoVW
+ feature alexnet
+336 kmeans su tutto il dataset, 80% training e 20% testing, random
+conf_mat =
+    0.2090    0.0896    0.0896
+    0.3582    0.6567    0.2239
+    0.4328    0.2537    0.6866
+accuracy = 0.5174
+336 kmeans su dataset senza S0, 80% training e 20% testing, random
+    0.3433    0.2687    0.4179
+    0.3433    0.3433    0.3582
+    0.3134    0.3881    0.2239
+accuracy = 0.3035
+336 kmeans su tutto il dataset, 10-fold cross-validation
+avg_accuracy = 0.4800
+336 kmeans su dataset senza S0, 10-fold cross-validation
+avg_accuracy = 0.3242
+
+ feature resnet
+336 kmeans su tutto il dataset, 80% training e 20% testing, random
+conf_mat =
+    0.0746    0.1045    0.0597
+    0.3881    0.5672    0.1493
+    0.5373    0.3284    0.7910
+accuracy = 0.4776
+336 kmeans su dataset senza S0, 80% training e 20% testing, random
+conf_mat =
+    0.4776    0.1940    0.3284
+    0.4478    0.2388    0.3134
+    0.5672    0.2239    0.2090
+accuracy =  0.3085
+336 kmeans su tutto il dataset, 10-fold cross-validation
+avg_accuracy = 0.4513
+336 kmeans su dataset senza S0, 10-fold cross-validation
+avg_accuracy = 0.3116
+
+BoVW - SURF
+estrazione feature
+336 kmeans
+kNN
+k = 5
+conf_mat =
+   332    12   125
+     0   297     0
+     4    27   211
+accuracy = 0.8333
+
+SVM
+conf_mat =
+   329     3    56
+     0   318     1
+     7    15   279
+accuracy = 0.9187
+
+336 kmeans, senza immagini S0
+kNN
+k = 5
+conf_mat =
+   332    19   123
+     0   288     0
+     4    29   213
+accuracy = 0.8264
+
+SVM
+conf_mat =
+   329     6    58
+     0   315     0
+     7    15   278
+accuracy = 0.9147
+
+BoVW - SIFT (vettore da 500)
+su tutto il dataset, 336 kmeans:
+kNN
+k = 30
+conf_mat =
+   325    77    98
+     0   208    27
+    11    51   211
+accuracy = 0.7381
+
+SVM
+conf_mat =
+   314    12    15
+     3   253    40
+    19    71   281
+accuracy = 0.8413
+
+BoVW - DSIFT (vettore da 500)
+su tutto il dataset, 336 kmeans:
+kNN
+k = 5
+conf_mat =
+   336    27     1
+     0   220    15
+     0    89   320
+accuracy = 0.8690
+
+SVM
+conf_mat =
+   335    10     0
+     1   280    19
+     0    46   317
+accuracy = 0.9246
+
+dataset senza S0 (feature estratte da dataset senza S0), 287 kmeans:
+k = 5
+conf_mat =
+   276    10    58
+     6   269    10
+     5     8   219
+accuracy = 0.8873
+
+SVM
+conf_mat =
+   273     2     7
+     6   275     5
+     8    10   275
+accuracy = 0.9559
+
+
+---- NUOVO ALEXNET
+
+kNN
+k = 10
+conf_mat =
+   275     0     7
+     7   243     0
+     5    44   280
+accuracy = 0.9268
+
+SVM 
+conf_mat =
+   274     1     6
+     8   273    10
+     5    13   271
+accuracy = 0.9501
+
+----- MSDSIFT
+kNN
+k = 5
+conf_mat =
+   277    24    37
+     4   255     3
+     6     8   247
+accuracy = 0.9048
+
+SVM
+conf_mat =
+   268     5     3
+    10   270     3
+     9    12   281
+accuracy = 0.9512
+
+
+
