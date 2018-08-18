@@ -6,11 +6,6 @@
   * galaxies must be in the "tsv_file" path inside the getmapFromTSV
   * 
   * 
-  *
-  * Per usare questo programma: estrarre dall'archivio le immagini,
-  * rinominare la cartella "galaxies" e metterla nel percorso
-  * presente nella variabile "path" all'interno del main.
-  * La creazione delle sottocartelle avviene in automatico.
   */
 
 import java.io.File
@@ -23,7 +18,7 @@ object main{
     // get the map: galaxy name -> galaxy type
     def getMapFromTSV: Map[String, String] = {
         var map = Map[String, String]()
-        val tsv_file = "../../DL/data.tsv"
+        val tsv_file = "DL/data.tsv"
 		
 		// read the file
         for (line <- Source.fromFile(tsv_file).getLines if !isComment(line)) {
@@ -40,7 +35,7 @@ object main{
     def isBarredSpiral(s: String): Boolean = s.startsWith("SB")
     def isSpiral(s:String): Boolean = s.startsWith("S")
     def isSpiralNotBarred(s:String): Boolean = !isBarredSpiral(s) && s.startsWith("S")
-    def isElliptical(s:String): Boolean = s.startsWith("E") || s == "S0"
+    def isElliptical(s:String): Boolean = s.startsWith("E") || isS0(s)
 	def isS0(s:String): Boolean = s.contains("0") || s.contains("O")
 	
 	// returns the file name with no extension	
@@ -50,7 +45,7 @@ object main{
         println("move_galaxies")
 
         val map = getMapFromTSV
-        val path = "../../DL/galaxies/splitted/filtered_cropped_all_no_S0/"
+        val path = "DL/galaxies/splitted/filtered_cropped_all/"
         val folder = new File(path)
 
 
@@ -61,7 +56,6 @@ object main{
             new File(path + "elliptic").mkdir()
             new File(path + "irregular").mkdir()
             new File(path + "spiral").mkdir()
-            new File(path + "S0").mkdir()
             
             println("starting...")
 
@@ -69,11 +63,8 @@ object main{
             for (file <- folder.listFiles().toList if isGalaxyImage(file.getName)){
 
 				// if the galaxy is of that type
-				if (isS0(map(nameNoExtension(file.getName)))) 
-					// move it to the subfolder by simply renaming the file
-                    file.renameTo(new File(path + "/S0/" + file.getName))
-
 				if (isElliptical(map(nameNoExtension(file.getName)))) 
+					// move it to the subfolder by simply renaming the file
                     file.renameTo(new File(path + "/elliptic/" + file.getName))
                     
                 else if (isSpiral(map(nameNoExtension(file.getName)))) 
