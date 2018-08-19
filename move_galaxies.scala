@@ -45,7 +45,7 @@ object main{
         println("move_galaxies")
 
         val map = getMapFromTSV
-        val path = "DL/galaxies/splitted/filtered_cropped_all/"
+        val path = "DL/galaxies/splitted/filtered_cropped/"
         val folder = new File(path)
 
 
