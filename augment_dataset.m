@@ -36,7 +36,7 @@ for i = 1:m
     imwrite(I_cropped, img_path);
 
 end
-        
+    
 
 load gong.mat;
 sound(y);
