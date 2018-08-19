@@ -22,13 +22,13 @@ for i = 1:m
     J = rotate_and_crop(I, 15 + 60*rand, crop_start, crop_finish);
     % save the new rotated-cropped image
     new_img_path = [img_path(1, 1:end-4) '_2.png'];
-    imwrite(J_rotated_cropped, new_img_path);
+    imwrite(J, new_img_path);
     
     % do a random rotation from 15° to 75° and crop the image
     J = rotate_and_crop(I, 15 + 60*rand, crop_start, crop_finish);
     % save the new rotated-cropped image
     new_img_path = [img_path(1, 1:end-4) '_3.png'];
-    imwrite(J_rotated_cropped, new_img_path);
+    imwrite(J, new_img_path);
  
     
     % now for the original image, crop it and overwrite it
