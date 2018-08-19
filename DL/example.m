@@ -2,22 +2,24 @@
 
 %% Images Loading
 % set the images path
-rootFolder = 'galaxies/filtered_cropped_all';
+rootFolder = 'galaxies/splitted/filtered_cropped_augmented';
+
+is_augmented = contains(rootFolder, 'augmented');
 
 % load images
 disp('loading images');
-% imds = get_imds(rootFolder);
+imds = get_imds(rootFolder);
 
 % "S0" galaxies are the most mis-evaluated from the classifiers, so this
 % test works without using them
-imds = get_imds_no_S0;
+% imds = get_imds_no_S0;
 
 %% Features Loading
-% feature_type = 'alexnet';
+feature_type = 'alexnet';
 % feature_type = 'resnet';
 % feature_type = 'bovw_SIFT';
 % feature_type = 'bovw_sift';
-feature_type = 'bovw_msdsift';
+% feature_type = 'bovw_msdsift';
 % feature_type = 'bovw_dsift';
 % feature_type = 'bovw_dsift_no_S0';
 % feature_type = 'bovw_SURF';
