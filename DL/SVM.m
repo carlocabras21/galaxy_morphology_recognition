@@ -25,11 +25,14 @@ for i=1:n_images
     
     % test-set is composed only by the current feature
     testFeat = trainingFeatures(:, i);
+    
     % training-set is composed by the other features
-    trainFeat = trainingFeatures(:, [1:i-1 i+1:end]);
+    [fst, snd] = get_training_set_limits(imds, i);
+    training_indices = [1:fst snd:n_images];
+    trainFeat = trainingFeatures(:, training_indices);
     
     % get the training labels
-    trainingLabels = imds.Labels([1:i-1 i+1:end]);
+    trainingLabels = imds.Labels(training_indices);
     
     % train the classifier using the training set
     classifier = fitcecoc(trainFeat, trainingLabels, ...

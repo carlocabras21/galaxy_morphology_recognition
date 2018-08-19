@@ -3,9 +3,12 @@ function imds = get_imds(rootFolder)
 
 % check if the rootfolder is already splitted by category
 dir_files = dir(rootFolder);
-[~, n_types] = size(unique(cell2mat(extractfield(dir_files, 'isdir'))));
+[~, n_types] = size( ... % number of elements in unique
+                unique( ... % get the number of differ elements in folder
+                cell2mat( ... % convert from cell to number
+                  extractfield(dir_files, 'isdir'))));
 
-if n_types == 1  
+if n_types == 1  % if there are only 1 type of files, i.e. only folders
     % search for categories in the folder
     
     % remove '.' and '..', every file in the directory is a folder
@@ -18,7 +21,9 @@ if n_types == 1
     imds = imageDatastore(fullfile(rootFolder, categories), ...
         'LabelSource', 'foldernames');
 else
-
+    % if the folder is not already splitted, search for categories
+    % in the data file
+    
     % load images
     imds = imageDatastore(fullfile(rootFolder));
     [n_images, ~] = size(imds.Files);

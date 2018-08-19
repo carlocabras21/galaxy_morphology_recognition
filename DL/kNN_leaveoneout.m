@@ -30,9 +30,11 @@ for i = 1:n_images
     end
     
     test_feature = training_features(:,i);
+
+    [fst, snd] = get_training_set_limits(imds, i);
     
     % for every other image (i.e. training set) except for the test one 
-    for j = [1:i-1 i+1:n_images]
+    for j = [1:fst snd:n_images]
         % compute the distances with the training images
         
         trainFeat = training_features(:,j);
