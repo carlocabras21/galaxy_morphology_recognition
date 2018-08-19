@@ -13,21 +13,21 @@ conf_mat = zeros(n_cat, n_cat);
 
 disp('training SVM');
 lastsize = 0;
-fprintf('training SVM for feature \n\n');
+fprintf('training SVM for feature ');
 tic
 for i=1:n_images
     % print the current status
-%     if mod(i, 10) == 0
-%         fprintf(repmat('\b', 1, lastsize));
-%         lastsize = fprintf('%d/%d', i, n_images);
-%     end
+    if mod(i, 10) == 0
+        fprintf(repmat('\b', 1, lastsize));
+        lastsize = fprintf('%d/%d', i, n_images);
+    end
 
     
     % test-set is composed only by the current feature
     testFeat = trainingFeatures(:, i);
     
     % training-set is composed by the other features
-    [fst, snd] = get_training_set_limits(imds, i);
+    [fst, snd] = get_training_set_limits(imds, i, n_images);
     training_indices = [1:fst snd:n_images];
     trainFeat = trainingFeatures(:, training_indices);
     
@@ -46,11 +46,11 @@ for i=1:n_images
     pred = find(categories == predicted);
     actu = find(categories == imds.Labels(i));
     
-    % print the mis-classification
-    if pred ~= actu
-        fprintf('%s ', get_name_from_path(imds.Files(i)));
-        fprintf('actual: %s, predicted: %s\n', imds.Labels(i), predicted); 
-    end
+%     % print the mis-classification
+%     if pred ~= actu
+%         fprintf('%s ', get_name_from_path(imds.Files(i)));
+%         fprintf('actual: %s, predicted: %s\n', imds.Labels(i), predicted); 
+%     end
     
     % update the confusion matrix
     conf_mat(pred, actu) = conf_mat(pred, actu) + 1;

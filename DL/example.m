@@ -46,10 +46,12 @@ k = 287; % k dimension
 %% Classification
 % kNN results
 disp('kNN');
-[k, conf_mat, accuracy] = kNN_leaveoneout(imds_kmeans, trainingFeatures)
+% [k, conf_mat, accuracy] = kNN_leaveoneout(imds_kmeans, trainingFeatures)
+[k, conf_mat, accuracy] = kNN_leaveoneout(imds, trainingFeatures)
 
 % SVM results
-[conf_mat, accuracy] = SVM(imds_kmeans, trainingFeatures)
+% [conf_mat, accuracy] = SVM(imds_kmeans, trainingFeatures)
+[conf_mat, accuracy] = SVM(imds, trainingFeatures)
 
 %% save kmeans image names into file
 % these names will be used for the purpose of copy the images in another

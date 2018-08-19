@@ -506,5 +506,16 @@ conf_mat =
      9    12   281
 accuracy = 0.9512
 
+/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
+dataset augmented fino ad arrivare a 3016 immagini per categoria
+leave-one-out cross-validation
+kNN
+k = 10
+conf_mat =
+        2961         176          39
+          48        2832          11
+           7           8        2966
+accuracy = 0.9681
+
 
 
