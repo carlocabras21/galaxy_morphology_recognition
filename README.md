@@ -11,11 +11,7 @@ The best results are obtained by trying to recognize three categories (ellitpic,
 
 Using kmeans for extracting the 338 closest images to the center and using a leave-one-out cross-validation approach, the results were:
 
-kNN
-
-k = 15 (best in 5:5:50)
-
-confusion matrix:
+kNN with k = 15 (best in 5:5:50), confusion matrix:
 
 |                    	| actual class 	|            	|           	|        	|
 |:------------------:	|:------------:	|:----------: |:----------:	|:------:	|
@@ -26,9 +22,7 @@ confusion matrix:
 
 accuracy = 0.9103
 
-SVM
-
-confusion matrix:
+SVM, confusion matrix:
 
 |                    	| actual class 	|            	|           	|        	|
 |:------------------:	|:------------:	|:----------: |:----------:	|:------:	|
@@ -42,11 +36,7 @@ accuracy = 0.9527
 Finally, we have tried to test an augmented dataset, by allowing to have 3016 images in each category. Originally there are ~1100 elliptic images, ~330 irregular images and ~3000 spiral images. The corrispondet augmented images of an image are not used for training the classifier for that particular image. The results were:
 
 
-kNN
-
-k = 10 (best in 5:5:50)
-
-confusion matrix:
+kNN with k = 10 (best in 5:5:50), confusion matrix:
 
 |                    	| actual class 	|            	|           	|        	|
 |:------------------:	|:------------:	|:----------: |:----------:	|:------:	|
@@ -57,9 +47,7 @@ confusion matrix:
 
 accuracy = 0.9681
 
-SVM
-
-confusion matrix:
+SVM, confusion matrix:
 
 |                    	| actual class 	|            	|           	|        	|
 |:------------------:	|:------------:	|:----------: |:----------:	|:------:	|
