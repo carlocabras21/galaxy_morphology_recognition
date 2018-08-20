@@ -33,7 +33,7 @@ SVM, confusion matrix:
 
 accuracy = 0.9527
 
-Finally, we have tried to test an augmented dataset, by allowing to have 3016 images in each category. Originally there are ~1100 elliptic images, ~330 irregular images and ~3000 spiral images. The corrispondet augmented images of an image are not used for training the classifier for that particular image. The results were:
+Finally, we have tried to test an augmented dataset, by allowing it to have 3016 images in each category. Originally there are ~1100 elliptic images, ~330 irregular images and ~3000 spiral images. The corrispondet augmented images of an image are not used for training the classifier for that particular image. The results were:
 
 
 kNN with k = 10 (best in 5:5:50), confusion matrix:
