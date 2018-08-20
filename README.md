@@ -9,7 +9,7 @@ We have tested different features like SIFT, DSIFT and MSDSIFT using BoVW from h
 
 The best results are obtained by trying to recognize three categories (ellitpic, irregular and spiral) and using the AlexNet featues. 
 
-Then, using kmeans for extracting the 336 closest images to the center and using a leave-one-out cross-validation approach, the results were:
+Then, using kmeans for extracting the 338 closest images to the center and using a leave-one-out cross-validation approach, the results were:
 
 kNN
 
@@ -59,8 +59,6 @@ accuracy = 0.9681
 
 SVM
 
-Elapsed time is 22400.468940 seconds.
-
 confusion matrix:
 
 |                    	| actual class 	|            	|           	|        	|
@@ -70,5 +68,5 @@ confusion matrix:
 |                    	|   Irregular  	|     73     	|    2916   	|    4   	|
 |                    	|    Spiral    	|      2     	|     2     	|  3006  	|
 
-accuracy = 0.9796
+accuracy = 0.9796, which is the best result obtained.
 
