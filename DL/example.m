@@ -26,7 +26,7 @@ feature_type = 'alexnet';
 
 featuresFolder = 'galaxies/features_filt_crop/';
 
-do_extraction = 1;
+do_extraction = 0;
 if do_extraction
     % extract and save features
     disp(['extracting ' feature_type ' features']);
