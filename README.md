@@ -9,7 +9,7 @@ We have tested different features like SIFT, DSIFT and MSDSIFT using BoVW from h
 
 The best results are obtained by trying to recognize three categories (ellitpic, irregular and spiral) and using the AlexNet featues. 
 
-Then, using kmeans for extracting the 338 closest images to the center and using a leave-one-out cross-validation approach, the results were:
+Using kmeans for extracting the 338 closest images to the center and using a leave-one-out cross-validation approach, the results were:
 
 kNN
 
