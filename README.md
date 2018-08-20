@@ -18,7 +18,7 @@ k = 15 (best in 5:5:50)
 confusion matrix:
 
 |                    	| actual class 	|            	|           	|        	|
-|:------------------:	|:------------:	|------------	|-----------	|--------	|
+|:------------------:	|:------------:	|:----------: |:----------:	|:------:	|
 |    predicted class 	|              	| Elliptical 	| Irregular 	| Spiral 	|
 |                    	|  Elliptical  	|     331    	|     13    	|   24   	|
 |                    	|   Irregular  	|      0     	|    278    	|    0   	|
@@ -31,7 +31,7 @@ SVM
 confusion matrix:
 
 |                    	| actual class 	|            	|           	|        	|
-|:------------------:	|:------------:	|------------	|-----------	|--------	|
+|:------------------:	|:------------:	|:----------: |:----------:	|:------:	|
 |    predicted class 	|              	| Elliptical 	| Irregular 	| Spiral 	|
 |                    	|  Elliptical  	|     325    	|     5     	|   13   	|
 |                    	|   Irregular  	|      0     	|    321    	|    5   	|
@@ -49,7 +49,7 @@ k = 10 (best in 5:5:50)
 confusion matrix:
 
 |                    	| actual class 	|            	|           	|        	|
-|:------------------:	|:------------:	|------------	|-----------	|--------	|
+|:------------------:	|:------------:	|:----------: |:----------:	|:------:	|
 |    predicted class 	|              	| Elliptical 	| Irregular 	| Spiral 	|
 |                    	|  Elliptical  	|    2961    	|    176    	|   39   	|
 |                    	|   Irregular  	|     48     	|    2832   	|   11   	|
@@ -62,7 +62,7 @@ SVM
 confusion matrix:
 
 |                    	| actual class 	|            	|           	|        	|
-|:------------------:	|:------------:	|------------	|-----------	|--------	|
+|:------------------:	|:------------:	|:----------: |:----------:	|:------:	|
 |    predicted class 	|              	| Elliptical 	| Irregular 	| Spiral 	|
 |                    	|  Elliptical  	|    2941    	|     98    	|    6   	|
 |                    	|   Irregular  	|     73     	|    2916   	|    4   	|
