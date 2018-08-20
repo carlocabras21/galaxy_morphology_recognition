@@ -17,11 +17,12 @@ k = 15 (best in 5:5:50)
 
 confusion matrix:
 
-|            | Elliptical  | Irregular  | Spiral  |
-|------------|-------------|------------|---------|
-| Elliptical |     331     |     13     |   24    |
-|  Irregular |      0      |    278     |    0    |
-|   Spiral   |      7      |     47     |   314   |
+|                    	| actual class 	|            	|           	|        	|
+|:------------------:	|:------------:	|------------	|-----------	|--------	|
+|    predicted class 	|              	| Elliptical 	| Irregular 	| Spiral 	|
+|                    	|  Elliptical  	|     331    	|     13    	|   24   	|
+|                    	|   Irregular  	|      0     	|    278    	|    0   	|
+|                    	|    Spiral    	|      7     	|     47    	|   314  	|
 
 accuracy = 0.9103
 
