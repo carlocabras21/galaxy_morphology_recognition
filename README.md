@@ -14,11 +14,13 @@ Then, using kmeans for extracting the 336 closest images to the center and using
 kNN
 k = 15 (best in 5:5:50)
 confusion matrix:
+
 |     x      | Elliptical  | Irregular  | Spiral  |
 |------------|-------------|------------|---------|
 | Elliptical |     331     |     13     |   24    |
 |  Irregular |      0      |    278     |    0    |
 |   Spiral   |      7      |     47     |   314   |
+
 accuracy = 0.9103
 
 SVM
@@ -70,3 +72,8 @@ confusion matrix:
 accuracy = 0.9796
 
 
+
+| First Header  | Second Header |
+| ------------- | ------------- |
+| Content Cell  | Content Cell  |
+| Content Cell  | Content Cell  |
