@@ -12,10 +12,12 @@ The best results are obtained by trying to recognize three categories (ellitpic,
 Then, using kmeans for extracting the 336 closest images to the center and using a leave-one-out cross-validation approach, the results were:
 
 kNN
+
 k = 15 (best in 5:5:50)
+
 confusion matrix:
 
-|     x      | Elliptical  | Irregular  | Spiral  |
+|            | Elliptical  | Irregular  | Spiral  |
 |------------|-------------|------------|---------|
 | Elliptical |     331     |     13     |   24    |
 |  Irregular |      0      |    278     |    0    |
@@ -24,56 +26,43 @@ confusion matrix:
 accuracy = 0.9103
 
 SVM
+
 confusion matrix:
-+----------------------------------------------------------+
-|                          actual                          |
-+----------------------------------------------------------+
-|           |            | Elliptical | Irregular | Spiral |
-+           +------------+------------+-----------+--------+
-|           | Elliptical |     325    |     5     |   13   |
-+ predicted +------------+------------+-----------+--------+
-|           |  Irregular |      0     |    321    |    5   |
-+           +------------+------------+-----------+--------+
-|           |   Spiral   |     13     |     12    |   320  |
-+-----------+------------+------------+-----------+--------+
+
+|            | Elliptical  | Irregular  | Spiral  |
+|------------|-------------|------------|---------|
+| Elliptical |     325     |     5      |   13    |
+|  Irregular |      0      |    321     |    5    |
+|   Spiral   |     13      |     12     |   320   |
+
 accuracy = 0.9527
 
 Finally, we have tried to test an augmented dataset, by allowing to have 3016 images in each category. Originally there are ~1100 elliptic images, ~330 irregular images and ~3000 spiral images. The corrispondet augmented images of an image are not used for training the classifier for that particular image. The results were:
+
+
 kNN
+
 k = 10 (best in 5:5:50)
+
 confusion matrix:
-+----------------------------------------------------------+
-|                          actual                          |
-+----------------------------------------------------------+
-|           |            | Elliptical | Irregular | Spiral |
-+           +------------+------------+-----------+--------+
-|           | Elliptical |    2961    |    176    |   39   |
-+ predicted +------------+------------+-----------+--------+
-|           |  Irregular |     48     |    2832   |   11   |
-+           +------------+------------+-----------+--------+
-|           |   Spiral   |      7     |     8     |  2966  |
-+-----------+------------+------------+-----------+--------+
+
+|            | Elliptical  | Irregular  | Spiral  |
+|------------|-------------|------------|---------|
+| Elliptical |    2961     |    176     |   39    |
+|  Irregular |     48      |    2832    |   11    |
+|   Spiral   |      7      |     8      |  2966   |
+
 accuracy = 0.9681
 
 SVM
 Elapsed time is 22400.468940 seconds.
 confusion matrix:
-+----------------------------------------------------------+
-|                          actual                          |
-+----------------------------------------------------------+
-|           |            | Elliptical | Irregular | Spiral |
-+           +------------+------------+-----------+--------+
-|           | Elliptical |    2941    |     98    |    6   |
-+ predicted +------------+------------+-----------+--------+
-|           |  Irregular |     73     |    2916   |    4   |
-+           +------------+------------+-----------+--------+
-|           |   Spiral   |      2     |     2     |  3006  |
-+-----------+------------+------------+-----------+--------+
+
+|            | Elliptical  | Irregular  | Spiral  |
+|------------|-------------|------------|---------|
+| Elliptical |    2941     |     98     |    6    |
+|  Irregular |     73      |    2916    |    4    |
+|   Spiral   |      2      |     2      |  3006   |
+
 accuracy = 0.9796
 
-
-
-| First Header  | Second Header |
-| ------------- | ------------- |
-| Content Cell  | Content Cell  |
-| Content Cell  | Content Cell  |
