@@ -4,15 +4,9 @@
 % set the images path
 rootFolder = 'galaxies/splitted/filtered_cropped_augmented';
 
-is_augmented = contains(rootFolder, 'augmented');
-
 % load images
 disp('loading images');
 imds = get_imds(rootFolder);
-
-% "S0" galaxies are the most mis-evaluated from the classifiers, so this
-% test works without using them
-% imds = get_imds_no_S0;
 
 %% Features Loading
 feature_type = 'alexnet';
@@ -51,7 +45,7 @@ disp('kNN');
 
 % SVM results
 % [conf_mat, accuracy] = SVM(imds_kmeans, trainingFeatures)
-[conf_mat, accuracy] = SVM(imds, trainingFeatures)
+[conf_mat, accuracy, predictions] = SVM(imds, trainingFeatures)
 
 %% save kmeans image names into file
 % these names will be used for the purpose of copy the images in another

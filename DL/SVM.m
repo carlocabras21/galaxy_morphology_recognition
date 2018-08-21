@@ -1,4 +1,4 @@
-function [conf_mat, accuracy] = SVM(imds, trainingFeatures)
+function [conf_mat, accuracy, predictions] = SVM(imds, trainingFeatures)
 %% SVM computes the linear SVM leave-one-out cross-validation
 
 % get categories from the imds
@@ -11,6 +11,9 @@ categories = unique(imds.Labels);
 % initialize the confusion matrix
 conf_mat = zeros(n_cat, n_cat);
 
+% initialize the predicitons vector
+predictions = zeros(n_images);
+
 disp('training SVM');
 lastsize = 0;
 fprintf('training SVM for feature ');
@@ -21,7 +24,6 @@ for i=1:n_images
         fprintf(repmat('\b', 1, lastsize));
         lastsize = fprintf('%d/%d', i, n_images);
     end
-
     
     % test-set is composed only by the current feature
     testFeat = trainingFeatures(:, i);
@@ -46,11 +48,8 @@ for i=1:n_images
     pred = find(categories == predicted);
     actu = find(categories == imds.Labels(i));
     
-%     % print the mis-classification
-%     if pred ~= actu
-%         fprintf('%s ', get_name_from_path(imds.Files(i)));
-%         fprintf('actual: %s, predicted: %s\n', imds.Labels(i), predicted); 
-%     end
+    % save the current prediction
+    predictions(i) = pred;
     
     % update the confusion matrix
     conf_mat(pred, actu) = conf_mat(pred, actu) + 1;

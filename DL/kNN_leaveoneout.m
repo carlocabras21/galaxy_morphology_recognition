@@ -29,13 +29,16 @@ for i = 1:n_images
         lastsize = fprintf('%d/%d', i, n_images);
     end
     
+    % the i-th feature is the one to test
     test_feature = training_features(:,i);
-
+    
+    % the training set is given by the other images, but not the ones
+    % from the augmented dataset that correspond to the test image
     [fst, snd] = get_training_set_limits(imds, i,n_images);
     
-    % for every other image (i.e. training set) except for the test one 
+    % for every image in the training set
     for j = [1:fst snd:n_images]
-        % compute the distances with the training images
+        % compute the distance between test and training images
         
         trainFeat = training_features(:,j);
 
@@ -79,13 +82,14 @@ best_k = 0;
 disp('searching for the best k');
 for k=5:5:50
     
-    % get the indices of the k closest images
+    % for each image, get the indices of the k closest images
     knn = minimum_distances_indices(:,1:k); % matrix (n x k)
     
-    % get the k closest image labels
+    % for each image, get the k closest image labels
     closest_labels = imds.Labels(knn);
 
-    % extract the dominant label, which is the predicted from the kNN
+    % for each image, extract the dominant label, which is the predicted 
+    % from the kNN
     predicted = mode(closest_labels');
 
     % pre-allocate the currentconfusion matrix

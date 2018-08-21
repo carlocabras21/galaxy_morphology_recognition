@@ -5,7 +5,7 @@ function imds = get_imds(rootFolder)
 dir_files = dir(rootFolder);
 [~, n_types] = size( ... % number of elements in unique
                 unique( ... % get the number of differ elements in folder
-                cell2mat( ... % convert from cell to number
+                 cell2mat( ... % convert from cell to number
                   extractfield(dir_files, 'isdir'))));
 
 if n_types == 1  % if there are only 1 type of files, i.e. only folders
