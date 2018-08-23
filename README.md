@@ -58,3 +58,12 @@ SVM, confusion matrix:
 
 accuracy = 0.9796, which is the best result obtained.
 
+
+Here there is the confusion matrix of the original images, the ones not augmented:
+|                    	| actual class 	|            	|           	|        	|
+|:------------------:	|:------------:	|:----------: |:----------:	|:------:	|
+|    predicted class 	|              	| Elliptical 	| Irregular 	| Spiral 	|
+|                    	|  Elliptical  	|    1078    	|     14    	|    6   	|
+|                    	|   Irregular  	|     25     	|    323    	|    4   	|
+|                    	|    Spiral    	|      1     	|     1     	|  3006  	|
+
