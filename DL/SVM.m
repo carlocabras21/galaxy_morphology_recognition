@@ -12,7 +12,7 @@ categories = unique(imds.Labels);
 conf_mat = zeros(n_cat, n_cat);
 
 % initialize the predicitons vector
-predictions = zeros(n_images);
+predictions = zeros(n_images, 1);
 
 disp('training SVM');
 lastsize = 0;

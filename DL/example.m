@@ -47,6 +47,32 @@ disp('kNN');
 % [conf_mat, accuracy] = SVM(imds_kmeans, trainingFeatures)
 [conf_mat, accuracy, predictions] = SVM(imds, trainingFeatures)
 
+%% search for images not augmented
+[n_images, ~] = size(imds.Files);
+categories = unique(imds.Labels);
+
+% extract the indices of the original images
+indices = zeros(n_images, 1);
+for i=1:n_images
+    indices(i) = ~contains(get_name_from_path(imds.Files(i)), '_');
+end
+
+% compute confusion matrix and accuracy
+conf_mat_2 = zeros(3,3);
+
+for i = 1:n_images
+    if indices(i)
+        pred = predictions(i);
+        actu = find(categories == imds.Labels(i));
+
+        conf_mat_2(pred, actu) = conf_mat_2(pred, actu) + 1;
+    end
+end
+
+conf_mat_2
+d = diag(conf_mat_2);
+accuracy_2 = sum(d)/sum(sum(conf_mat_2))
+
 %% save kmeans image names into file
 % these names will be used for the purpose of copy the images in another
 % folder, where the handsonbow code can be used
