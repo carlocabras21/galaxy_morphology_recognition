@@ -2,15 +2,15 @@
 
 %% Images Loading
 % set the images path
-rootFolder = 'galaxies/splitted/filtered_cropped_augmented';
+rootFolder = 'galaxies/splitted/filtered_cropped';
 
 % load images
 disp('loading images');
 imds = get_imds(rootFolder);
 
 %% Features Loading
-feature_type = 'alexnet';
-% feature_type = 'resnet';
+% feature_type = 'alexnet';
+feature_type = 'resnet';
 % feature_type = 'bovw_SIFT';
 % feature_type = 'bovw_sift';
 % feature_type = 'bovw_msdsift';
@@ -34,18 +34,19 @@ end
 %% k-means extraction
 % extract kmeans dataset
 disp('extracting kmeans');
-k = 287; % k dimension
+k = 336; % k dimension
 [imds_kmeans, trainingFeatures] = get_imds_kmeans(imds, trainingFeatures, k);
 
 %% Classification
 % kNN results
 disp('kNN');
 % [k, conf_mat, accuracy] = kNN_leaveoneout(imds_kmeans, trainingFeatures)
-[k, conf_mat, accuracy] = kNN_leaveoneout(imds, trainingFeatures)
+[k, conf_mat, accuracy] = kNN_leaveoneout(imds_kmeans, trainingFeatures)
 
 % SVM results
+disp('SVM');
 % [conf_mat, accuracy] = SVM(imds_kmeans, trainingFeatures)
-[conf_mat, accuracy, predictions] = SVM(imds, trainingFeatures)
+[conf_mat, accuracy, ~] = SVM(imds_kmeans, trainingFeatures)
 
 %% search for images not augmented
 [n_images, ~] = size(imds.Files);
