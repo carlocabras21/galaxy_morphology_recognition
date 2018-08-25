@@ -5,9 +5,9 @@ The dataset used is https://www.astromatic.net/projects/efigi, where some featur
 
 This project is part of the Computer Vision course that I'm taking.
 
-We have tested different features like SIFT, DSIFT and MSDSIFT using BoVW from handsonbow; SURF from the BoVW of MATLAB; features extracted with the pre-trained CNNs AlexNet and ResNet50 that are present in MATLAB.
+We have tested different features like SIFT, DSIFT and MSDSIFT using BoVW from handsonbow; SURF from the BoVW of MATLAB; features extracted with the pre-trained CNNs AlexNet and ResNet50 that are already trained and present in MATLAB.
 
-The best results are obtained by trying to recognize three categories (ellitpic, irregular and spiral) and using the AlexNet featues. 
+The best results are obtained by trying to recognize three categories (Ellitpic, Irregular and Spiral) and using the AlexNet featues. 
 
 Using kmeans for extracting the 338 closest images to the center and using a leave-one-out cross-validation approach, the results were:
 
@@ -33,7 +33,7 @@ SVM, confusion matrix:
 
 accuracy = 0.9527
 
-Finally, we have tried to test an augmented dataset, by allowing it to have 3016 images in each category. Originally there are ~1100 elliptic images, ~330 irregular images and ~3000 spiral images. The corrispondet augmented images of an image are not used for training the classifier for that particular image. The results were:
+Finally, we have tried to test an augmented dataset, by allowing it to have 3016 images in each category. Originally there were ~1100 elliptic images, ~330 irregular images and ~3000 spiral images. The corrispondet augmented images of the original images are not used for training the classifier for those original images. The results were:
 
 
 kNN with k = 10 (best in 5:5:50), confusion matrix:
@@ -59,7 +59,7 @@ SVM, confusion matrix:
 accuracy = 0.9796, which is the best result obtained.
 
 
-Here there is the confusion matrix of the original images, the ones not augmented:
+Here there is the confusion matrix base on the prediction of the original images, the not augmented ones:
 
 |                    	| actual class 	|            	|           	|        	|
 |:------------------:	|:------------:	|:----------: |:----------:	|:------:	|
