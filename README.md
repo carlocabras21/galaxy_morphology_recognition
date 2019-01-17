@@ -1,15 +1,15 @@
 # Galaxy Morphology Recognition
-Testing some methods for recognize the morphology of a galaxy, based only on the images.
+In this work I test different methods for recognize the morphology of a galaxy, based only on the images.
 
 The dataset used is https://www.astromatic.net/projects/efigi, where some features are extracted using the handsonbow code https://sites.google.com/site/handsonbow/downloads ore using the MATLAB tutorials for extracting features from CNN, like this one https://it.mathworks.com/help/vision/examples/image-category-classification-using-deep-learning.html.
 
 This project is part of the Computer Vision course that I'm taking.
 
-We have tested different features like SIFT, DSIFT and MSDSIFT using BoVW from handsonbow; SURF from the BoVW of MATLAB; features extracted with the pre-trained CNNs AlexNet and ResNet50 that are already trained and present in MATLAB.
+I have tested different features like SIFT, DSIFT and MSDSIFT using the BoVW technique from handsonbow; SURF from the BoVW of MATLAB; features extracted with the pre-trained CNNs AlexNet and ResNet50 that are already trained and present in MATLAB.
 
 The best results are obtained by trying to recognize three categories (Ellitpic, Irregular and Spiral) and using the AlexNet featues. 
 
-Using kmeans for extracting the 338 closest images to the center and using a leave-one-out cross-validation approach, the results were:
+By using kmeans for extracting the 338 closest images to the center and a leave-one-out cross-validation approach, the results were:
 
 kNN with k = 15 (best in 5:5:50), confusion matrix:
 
@@ -33,7 +33,7 @@ SVM, confusion matrix:
 
 accuracy = 0.9527
 
-Finally, we have tried to test an augmented dataset, by allowing it to have 3016 images in each category. Originally there were ~1100 elliptic images, ~330 irregular images and ~3000 spiral images. The corrispondet augmented images of the original images are not used for training the classifier for those original images. The results were:
+Finally, I have tried to test an augmented dataset, by allowing it to have 3016 images for each category. Originally there were ~1100 elliptic images, ~330 irregular images and ~3000 spiral images. The corrispondent augmented images of the original images are not used for training the classifier for those original images. The results were:
 
 
 kNN with k = 10 (best in 5:5:50), confusion matrix:
