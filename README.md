@@ -59,7 +59,7 @@ SVM, confusion matrix:
 accuracy = 0.9796, which is the best result obtained.
 
 
-Here there is the confusion matrix base on the prediction of the original images, the not augmented ones:
+Here there is the confusion matrix based on the predictions of the original images, the not-augmented ones:
 
 |                    	| actual class 	|            	|           	|        	|
 |:------------------:	|:------------:	|:----------: |:----------:	|:------:	|
